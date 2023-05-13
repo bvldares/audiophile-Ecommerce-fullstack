@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-black {
+    @apply px-7 py-[13px] text-[13px] font-semibold tracking-[1px] bg-black uppercase hover:bg-dark_grey;
+  }
+}
