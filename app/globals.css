@@ -6,4 +6,12 @@
   .btn-black {
     @apply px-7 py-[13px] text-[13px] font-semibold tracking-[1px] bg-black uppercase hover:bg-dark_grey;
   }
+
+  .btn-transparent {
+    @apply px-7 py-[13px] text-[13px] font-semibold tracking-[1px] bg-transparent uppercase hover:bg-black border box-border border-black hover:text-white;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

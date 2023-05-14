@@ -24,14 +24,14 @@ export const authOptions = {
       const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
         apiVersion: "2022-11-15",
       });
-      if (user.email && user.name && user.id) {
+      if (user.email && user.name) {
         const customer = await stripe.customers.create({
           name: user.name,
           email: user.email,
         });
         await prisma.user.update({
           where: { id: user.id },
-          data: { stripeCustomerId: customer.id },
+          data: { stripeCustomerID: customer.id },
         });
       }
     },

@@ -31,11 +31,12 @@ export default function ProductNavigator() {
             <Image
               src={item.img}
               alt={item.name}
-              width={90}
-              height={101}
-              className="relative object-cover bottom-8 lg:h-[160px] lg:w-[123px]"
+              width={121}
+              height={150}
+              quality={100}
+              className="relative object-cover bottom-8 h-[104px] w-[80px] md:h-[146px] md:w-[120px]"
             />
-            <h3 className="uppercase tracking-[1.29px] -mt-9 mb-4  font-semibold text-[13px] lg:text-lg">
+            <h3 className="uppercase tracking-[1.29px] -mt-9 mb-4  font-bold text-[13px] lg:text-lg">
               {item.name}
             </h3>
             <Link

@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 const manrope = Manrope({ subsets: ["latin"] });
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth/next";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "Audiophile",
@@ -23,6 +24,7 @@ export default async function RootLayout({
       <body className={`${manrope.className} `}>
         <Navigation user={session?.user} expires={session?.expires as string} />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -29,6 +29,34 @@ export default function FeaturedProducts() {
           </Link>
         </div>
       </div>
+
+      {/* ZX7 SECTION*/}
+      <section
+        className="flex flex-col gap-8 items-start justify-center h-[320px] 
+        bg-zx7-mobile sm:bg-zx7-tablet lg:bg-zx7-desktop bg-no-repeat bg-cover bg-right rounded-lg p-6 md:p-14 lg:p-20 max-w-6xl "
+      >
+        <h2 className="text-3xl font-bold">ZX7 SPEACKER</h2>
+        <Link href="/product/zx7-speaker" className="btn-transparent">
+          see product
+        </Link>
+      </section>
+
+      {/* YX1 SECTION*/}
+      <section className="flex flex-col sm:flex-row sm:gap-10 gap-6  items-stretch">
+        <div
+          className="h-[200px] sm:h-[320px] w-full sm:w-1/2 bg-cover bg-center 
+        bg-no-repeat bg-yx1-mobile sm:bg-yx1-tablet lg:bg-yx1-desktop rounded-lg"
+        ></div>
+        <div
+          className="h-[200px] sm:h-[320px] w-full sm:w-1/2 flex flex-col items-start
+        rounded-lg justify-center p-6 md:p-10 lg:p-24 box-borde bg-[#F1F1F1]"
+        >
+          <h2 className="text-3xl font-bold mb-8">YX1 EARPHONES</h2>
+          <Link href="/product/zx7-speaker" className="btn-transparent">
+            see product
+          </Link>
+        </div>
+      </section>
     </section>
   );
 }

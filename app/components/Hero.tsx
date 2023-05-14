@@ -1,8 +1,8 @@
 import Link from "next/link";
 const Hero = () => {
   return (
-    <section className="bg-almostblack p-6 bg-hero-mobile md:bg-hero-tablet lg:bg-hero-desktop bg-no-repeat bg-cover bg-right-bottom">
-      <div className="max-w-6xl mx-auto flex justify-center items-center lg:justify-start h-[500px]">
+    <section className="bg-almostblack p-6 bg-hero-mobile md:bg-hero-tablet lg:bg-hero-desktop bg-no-repeat bg-cover bg-right-bottom ">
+      <div className="max-w-6xl mx-auto flex justify-center items-center lg:justify-start h-[500px] px-4">
         <div className="flex flex-col items-center text-center lg:items-start max-w-sm lg:text-left">
           <small className="text-grey tracking-widest uppercase mb-4 text-sm ">
             New product
