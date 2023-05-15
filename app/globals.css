@@ -10,6 +10,10 @@
   .btn-transparent {
     @apply px-7 py-[13px] text-[13px] font-semibold tracking-[1px] bg-transparent uppercase hover:bg-black border box-border border-black hover:text-white;
   }
+
+  .h2-product-details {
+    @apply font-bold uppercase text-[28px] tracking-[0.86px] mb-6 outro:mb-8 outro:tracking-[1.43px];
+  }
 }
 
 ::-webkit-scrollbar {

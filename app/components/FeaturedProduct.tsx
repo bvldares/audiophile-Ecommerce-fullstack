@@ -35,7 +35,7 @@ export default function FeaturedProducts() {
         className="flex flex-col gap-8 items-start justify-center h-[320px] 
         bg-zx7-mobile sm:bg-zx7-tablet lg:bg-zx7-desktop bg-no-repeat bg-cover bg-right rounded-lg p-6 md:p-14 lg:p-20 max-w-6xl "
       >
-        <h2 className="text-3xl font-bold">ZX7 SPEACKER</h2>
+        <h2 className="text-3xl font-bold">ZX7 SPEAKER</h2>
         <Link href="/product/zx7-speaker" className="btn-transparent">
           see product
         </Link>

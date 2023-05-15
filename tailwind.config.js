@@ -40,11 +40,18 @@ module.exports = {
       sm: "640px",
 
       xs: "500px",
+      xs2: "600px",
       md: "768px",
 
       lg: "1024px",
 
       xl: "1280px",
+    },
+    gridTemplateColumns: {
+      galleryCol: "minmax(277px,445px) minmax(395px,635)",
+    },
+    gridTemplateRows: {
+      galleryRow: "minmax(174px,280px) minmax(368,592px)",
     },
   },
   plugins: [],

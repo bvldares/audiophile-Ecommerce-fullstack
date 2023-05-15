@@ -42,7 +42,7 @@ const Navigation = ({ user }: Session) => {
         {/*Mobile Menu*/}
         {isOpen && (
           <div
-            className="w-screen h-screen bg-black bg-opacity-30 fixed inset-0"
+            className="w-screen h-screen bg-black bg-opacity-30 fixed inset-0 z-50"
             onClick={() => setIsOpen((prev) => !prev)}
           >
             <div className="fixed inset-0 md:top-0 md:left-0 md:bottom-0 md:right-1/2 bg-almostblack flex">
