@@ -17,7 +17,7 @@ export default function Footer() {
   });
   return (
     <section className="w-full py-10 md:py-14 lg:pt-20 lg:pb-16 bg-black">
-      <div></div>
+      <ul className="flex gap-10">{linksEl}</ul>
     </section>
   );
 }

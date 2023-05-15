@@ -27,7 +27,10 @@ export default function ProductNavigator() {
     <section className="flex flex-col items-center gap-8 max-w-6xl mx-auto w-full sm:flex-row">
       {sections.map((item) => {
         return (
-          <div className="flex flex-col items-center justify-center w-full bg-grey rounded-lg pb-5">
+          <div
+            className="flex flex-col items-center justify-center w-full bg-grey rounded-lg pb-5"
+            key={item.id}
+          >
             <Image
               src={item.img}
               alt={item.name}

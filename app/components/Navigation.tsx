@@ -16,16 +16,16 @@ import SignInButton from "./SignInButton";
 const Navigation = ({ user }: Session) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = ["home", "headphones", "speakers", "earphones"];
+  const links = ["/", "headphones", "speakers", "earphones"];
 
   const linksEl = links.map((route) => {
     return (
       <li key={nanoid()}>
         <Link
-          href={`/${route}`}
+          href={`${route}`}
           className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
         >
-          {route}
+          {route === "/" ? "Home" : route}
         </Link>
       </li>
     );
