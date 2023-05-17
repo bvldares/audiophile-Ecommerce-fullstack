@@ -9,12 +9,14 @@ import logo from "@/public/assets/shared/desktop/logo.svg";
 import Image from "next/image";
 import { nanoid } from "nanoid";
 import { Session } from "next-auth";
-import { signIn } from "next-auth/react";
 import { useState } from "react";
 import SignInButton from "./SignInButton";
+import { useCartStore } from "@/store";
+import Cart from "./Cart";
 
 const Navigation = ({ user }: Session) => {
   const [isOpen, setIsOpen] = useState(false);
+  const cartStore = useCartStore();
 
   const links = ["/", "headphones", "speakers", "earphones"];
 
@@ -87,12 +89,16 @@ const Navigation = ({ user }: Session) => {
           </span>
         )}
         <div className="relative">
-          <AiOutlineShoppingCart className="text-white text-2xl" />
+          <AiOutlineShoppingCart
+            className="text-white text-2xl"
+            onClick={() => cartStore.toggleCart()}
+          />
           <span className="absolute right-[-9px] top-[-8px] text-sm rounded-full w-5 h-5 flex items-center justify-center bg-terra text-white">
-            0
+            {cartStore.cart.length}
           </span>
         </div>
       </div>
+      {cartStore.isOpen && <Cart />}
     </nav>
   );
 };

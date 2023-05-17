@@ -13,7 +13,7 @@ export default function Products() {
     return (
       <div
         key={item.id}
-        className="flex flex-col items-center outro:flex-row gap-14"
+        className="flex flex-col items-center md:flex-row gap-14"
       >
         <Image
           src={item.categoryImage.desktop.substring(1)}
@@ -21,9 +21,9 @@ export default function Products() {
           height={560}
           alt={item.name}
           quality={100}
-          className="rounded-lg "
+          className="rounded-lg md:w-1/2 "
         />
-        <div className="outro:w-1/2 flex flex-col items-center text-center outro:text-left outro:items-start">
+        <div className="md:w-1/2 flex flex-col items-center text-center md:text-left md:items-start">
           {item.new && (
             <h3 className="text-terra text-sm tracking-[10px] uppercase">
               New Product

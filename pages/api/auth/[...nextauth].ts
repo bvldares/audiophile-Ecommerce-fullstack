@@ -19,6 +19,7 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   events: {
     createUser: async ({ user }: any) => {
       const stripe = new Stripe(process.env.STRIPE_SECRET as string, {

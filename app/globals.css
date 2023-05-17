@@ -14,6 +14,10 @@
   .h2-product-details {
     @apply font-bold uppercase text-[28px] tracking-[0.86px] mb-6 outro:mb-8 outro:tracking-[1.43px];
   }
+
+  .toggleQuantityBtn {
+    @apply p-4 bg-grey font-bold;
+  }
 }
 
 ::-webkit-scrollbar {

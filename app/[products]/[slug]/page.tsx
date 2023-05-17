@@ -4,17 +4,17 @@ import data from "@/data.json";
 import Link from "next/link";
 import Image from "next/image";
 import { nanoid } from "nanoid";
+import Outro from "@/app/components/Outro";
+import AddCart from "@/app/components/AddCart";
+import { useState } from "react";
+import QuantityHandler from "@/app/components/QuantityHandler";
+import formattedPrice from "@/util/priceFormatter";
 
 export default function ProductDeatils() {
+  const [quantity, setQuantity] = useState(1);
+
   const productSlug = usePathname()!.split("/")[2];
-
   const product = data.find((item) => item.slug === productSlug);
-  console.log(product);
-
-  const formattedPrice = new Intl.NumberFormat("it-IT", {
-    style: "currency",
-    currency: "EUR",
-  });
 
   return (
     <main className="flex flex-col gap-40 md:gap-24 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 lg:px-4 max-w-6xl mx-auto">
@@ -37,9 +37,19 @@ export default function ProductDeatils() {
             {product!.name}
           </h2>
           <p>{product!.description}</p>
-          <h3 className="text-lg font-bold mt-6 ">
+          <h3 className="text-lg font-bold mt-6 mb-4 outro:mb-6 ">
             {formattedPrice.format(product!.price)}
           </h3>
+          <div className="flex flex-row-reverse items-center gap-8">
+            <AddCart
+              name={product?.name as string}
+              id={product?.id as number}
+              unit_amount={product?.price as number}
+              quantity={quantity}
+              image={product?.image.desktop as string}
+            />
+            <QuantityHandler quantity={quantity} setQuantity={setQuantity} />
+          </div>
         </div>
       </section>
 
@@ -128,6 +138,7 @@ export default function ProductDeatils() {
           );
         })}
       </section>
+      <Outro />
     </main>
   );
 }
