@@ -48,7 +48,7 @@ module.exports = {
       xl: "1280px",
     },
     gridTemplateColumns: {
-      galleryCol: "minmax(277px,445px) minmax(395px,635)",
+      galleryCol: "minmax(277px,40%) minmax(395px,60%)",
     },
     gridTemplateRows: {
       galleryRow: "minmax(174px,280px) minmax(368,592px)",

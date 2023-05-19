@@ -3,18 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCartStore } from "@/store";
 import formattedPrice from "@/util/priceFormatter";
-import QuantityHandler from "./QuantityHandler";
-import { createStore } from "zustand";
+import { motion } from "framer-motion";
 export default function Cart() {
-  const { cart, toggleCart, addProduct, removeProduct } = useCartStore();
+  const { cart, toggleCart, addProduct, removeProduct, removeAllProduct } =
+    useCartStore();
+
+  const totalPrice = cart.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.unit_amount * currentValue.quantity,
+    0
+  );
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       className="fixed z-30 inset-0 py-28 bg-black bg-opacity-50 px-6 outro:px-8"
       onClick={() => toggleCart()}
     >
       {/* THE ACTUAL CART */}
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="bg-white text-black p-8 rounded-lg max-w-6xl sm:w-[400px] ml-auto"
         onClick={(e) => e.stopPropagation()}
       >
@@ -23,13 +35,16 @@ export default function Cart() {
             Cart {`(${cart.length})`}
           </h3>
           {cart.length > 0 && (
-            <button className="text-gray-500 underline text-sm">
+            <button
+              className="text-gray-500 underline text-sm"
+              onClick={() => removeAllProduct()}
+            >
               Remove all
             </button>
           )}
         </div>
         {cart.length > 0 && (
-          <div>
+          <>
             {cart.map((cartItem) => {
               return (
                 <div
@@ -41,7 +56,7 @@ export default function Cart() {
                     width={64}
                     height={64}
                     alt={cartItem.name}
-                    className="rounded-lg"
+                    className="rounded-lg aspect-square"
                   />
                   <div className="flex flex-col justify-center mr-auto">
                     <h4 className="font-bold uppercase text-[15px]">
@@ -69,7 +84,7 @@ export default function Cart() {
                 </div>
               );
             })}
-          </div>
+          </>
         )}
         {cart.length < 1 && (
           <h2 className="text-center py-24 -mt-6 uppercase tracking-wider">
@@ -77,17 +92,25 @@ export default function Cart() {
           </h2>
         )}
 
+        {/*TOTAL PRICE AND CHECKOUT BUTTON  */}
         {cart.length > 0 && (
           <div>
+            <div className="flex items-center justify-between mb-4">
+              <p className="uppercase opacity-60 text-[15px]">total</p>
+              <h3 className="font-bold text-lg">
+                {formattedPrice.format(totalPrice)}
+              </h3>
+            </div>
             <Link
               className="py-[15px] w-full uppercase inline-block text-white text-center bg-terra hover:bg-terralight"
               href="/checkout"
+              onClick={() => toggleCart()}
             >
               Checkout
             </Link>
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

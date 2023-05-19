@@ -35,14 +35,36 @@ model Session {
 }
 
 model User {
-  id               String    @id @default(cuid()) 
+  id               String    @id @default(cuid())
   name             String?
   email            String?   @unique
   emailVerified    DateTime?
   image            String?
   accounts         Account[]
   sessions         Session[]
-  stripeCustomerID String? 
+  stripeCustomerID String?
+  orders           Order[]
+}
+
+model Order {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  amount          Float
+  currency        String
+  status          String
+  createdAt       DateTime  @default(now())
+  paymentIntentID String?   @unique
+  products        Product[]
+}
+
+model Product {
+  id          String  @id @default(cuid())
+  name        String
+  unit_amount Float
+  image       String?
+  quantity    Float   @default(0)
+  Order       Order[]
 }
 
 model VerificationToken {

@@ -12,6 +12,7 @@ import { Session } from "next-auth";
 import { useState } from "react";
 import SignInButton from "./SignInButton";
 import { useCartStore } from "@/store";
+import { motion, AnimatePresence } from "framer-motion";
 import Cart from "./Cart";
 
 const Navigation = ({ user }: Session) => {
@@ -93,12 +94,19 @@ const Navigation = ({ user }: Session) => {
             className="text-white text-2xl"
             onClick={() => cartStore.toggleCart()}
           />
-          <span className="absolute right-[-9px] top-[-8px] text-sm rounded-full w-5 h-5 flex items-center justify-center bg-terra text-white">
-            {cartStore.cart.length}
-          </span>
+          {cartStore.cart.length > 0 && (
+            <motion.span
+              className="absolute right-[-9px] top-[-8px] text-sm rounded-full w-5 h-5 flex items-center justify-center bg-terra text-white"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              {cartStore.cart.length}
+            </motion.span>
+          )}
         </div>
       </div>
-      {cartStore.isOpen && <Cart />}
+      <AnimatePresence>{cartStore.isOpen && <Cart />}</AnimatePresence>
     </nav>
   );
 };
