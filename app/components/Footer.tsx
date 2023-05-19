@@ -23,7 +23,7 @@ export default function Footer() {
     );
   });
   return (
-    <section className="bg-almostblack">
+    <section className="bg-almostblack mt-auto">
       <div
         className="py-8  px-6 md:px-10 xl:px-0 max-w-6xl lg:pb-9 mx-auto
         flex flex-col items-center justify-center gap-4 text-white

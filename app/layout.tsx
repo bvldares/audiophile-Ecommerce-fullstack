@@ -22,7 +22,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${manrope.className} `}>
+      <body className={`${manrope.className} flex flex-col h-screen`}>
         <Hydrate>
           <Navigation
             user={session?.user}
