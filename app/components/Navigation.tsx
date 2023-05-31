@@ -21,12 +21,25 @@ const Navigation = ({ user }: Session) => {
 
   const links = ["/", "headphones", "speakers", "earphones"];
 
-  const linksEl = links.map((route) => {
+  const LinksMenu = links.map((route) => {
     return (
       <li key={nanoid()}>
         <Link
           href={`${route}`}
           onClick={() => setIsOpen((prev) => !prev)}
+          className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
+        >
+          {route === "/" ? "Home" : route}
+        </Link>
+      </li>
+    );
+  });
+
+  const linksNavigation = links.map((route) => {
+    return (
+      <li key={nanoid()}>
+        <Link
+          href={`${route}`}
           className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
         >
           {route === "/" ? "Home" : route}
@@ -57,13 +70,15 @@ const Navigation = ({ user }: Session) => {
                   className="text-2xl text-white fixed inset-6"
                   onClick={() => setIsOpen((prev) => !prev)}
                 />
-                <ul className="m-auto flex flex-col text-center gap-5">
-                  {linksEl}
+                <ul
+                  className="m-auto flex flex-col text-center gap-5 "
+                  onClick={() => setIsOpen((prev) => !prev)}
+                >
+                  {LinksMenu}
                   {user ? (
                     <Link
                       href="/dashboard"
                       className="border bg-white py-3 px-6 uppercase tracking-[1.29px] font-bold"
-                      onClick={() => setIsOpen((prev) => !prev)}
                     >
                       Dashboard
                     </Link>
@@ -84,7 +99,9 @@ const Navigation = ({ user }: Session) => {
         </Link>
 
         {/*Navigation links */}
-        <ul className="hidden md:flex gap-10 text-xs ml-4">{linksEl}</ul>
+        <ul className="hidden md:flex gap-10 text-xs ml-4">
+          {linksNavigation}
+        </ul>
         {user ? (
           <Image
             src={user.image as string}

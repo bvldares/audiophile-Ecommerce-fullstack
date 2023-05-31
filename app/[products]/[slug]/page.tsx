@@ -9,12 +9,18 @@ import AddCart from "@/app/components/AddCart";
 import { useState } from "react";
 import QuantityHandler from "@/app/components/QuantityHandler";
 import formattedPrice from "@/util/priceFormatter";
+import Head from "next/head";
 
 export default function ProductDeatils() {
   const [quantity, setQuantity] = useState(1);
 
   const productSlug = usePathname()!.split("/")[2];
   const product = data.find((item) => item.slug === productSlug);
+
+  <Head>
+    <title>{product?.name}</title>
+    <meta property="og:title" content={product?.description} key="title" />
+  </Head>;
 
   return (
     <main className="flex flex-col gap-40  md:gap-20 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 lg:px-4 max-w-6xl mx-auto">

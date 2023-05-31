@@ -10,6 +10,7 @@ import formattedPrice from "@/util/priceFormatter";
 import Image from "next/image";
 import Link from "next/link";
 import { BiArrowBack } from "react-icons/bi";
+import { Metadata, ResolvingMetadata } from "next";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE!);
 

@@ -24,7 +24,7 @@ export default function ProductNavigator() {
     },
   ];
   return (
-    <section className="flex flex-col items-center gap-8 max-w-6xl mx-auto w-full sm:flex-row">
+    <section className="flex flex-col items-center gap-14 max-w-6xl mx-auto w-full sm:flex-row sm:gap-8">
       {sections.map((item) => {
         return (
           <div

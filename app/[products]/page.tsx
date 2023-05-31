@@ -5,6 +5,7 @@ import Outro from "../components/Outro";
 import ProductNavigator from "../components/ProductNavigator";
 import data from "@/data.json";
 import Link from "next/link";
+
 export default function Products() {
   const path = usePathname()?.substring(1);
   const filteredData = data.filter((item) => item.category === path);

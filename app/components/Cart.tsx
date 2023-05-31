@@ -108,6 +108,13 @@ export default function Cart() {
             >
               Checkout
             </Link>
+            <Link
+              className="py-[15px] w-full uppercase inline-block text-white text-center bg-almostblack hover:bg-white hover:border-black hover:text-black hover:box-border border-[2px] border-white mt-4"
+              href="/dashboard"
+              onClick={() => toggleCart()}
+            >
+              Dashboard
+            </Link>
           </div>
         )}
       </motion.div>

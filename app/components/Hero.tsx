@@ -4,11 +4,11 @@ const Hero = () => {
     <section className="bg-[#191919] h-[500px] flex items-stretch justify-start">
       <div
         className="max-w-6xl w-full h-full px-6 outro:px-10 xl:px-0 mx-auto flex justify-center items-center lg:justify-start 
-        bg-hero-mobile md:bg-hero-tablet lg:bg-hero-desktop bg-no-repeat bg-cover bg-right-bottom flex-shrink-0
+        bg-hero-mobile outro:bg-hero-tablet lg:bg-hero-desktop lg:bg-[length:1200px_608px] lg:bg-right-bottom bg-no-repeat bg-cover bg-bottom  md:bg-cover 
       "
       >
         <div className="flex flex-col items-center text-center lg:items-start max-w-sm lg:text-left">
-          <small className="text-grey tracking-widest uppercase mb-4 text-sm ">
+          <small className="text-gray-400 tracking-[10px] uppercase mb-4 text-sm ">
             New product
           </small>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl uppercase font-bold text-white mb-6">

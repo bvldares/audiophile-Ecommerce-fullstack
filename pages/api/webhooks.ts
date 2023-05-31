@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { buffer } from "micro";
 import { NextApiRequest, NextApiResponse } from "next";
 import { data } from "autoprefixer";
+import { prisma } from "@/util/prisma";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
   apiVersion: "2022-11-15",
@@ -13,8 +14,6 @@ export const config = {
     bodyParser: false,
   },
 };
-
-const prisma = new PrismaClient();
 
 export default async function handler(
   req: NextApiRequest,

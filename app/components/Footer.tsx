@@ -8,7 +8,7 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 export default function Footer() {
-  const links = ["home", "headphones", "speakers", "earphones"];
+  const links = ["headphones", "speakers", "earphones"];
 
   const linksEl = links.map((route) => {
     return (

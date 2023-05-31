@@ -4,11 +4,17 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { FiPackage } from "react-icons/fi";
 import priceFormatter from "@/util/priceFormatter";
 import Image from "next/image";
+import { Metadata } from "next";
+import { prisma } from "@/util/prisma";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Check your orders and modify them",
+};
 
 export const revalidate = 0;
 
 const fetchOrders = async () => {
-  const prisma = new PrismaClient();
   const user = await getServerSession(authOptions);
 
   if (!user) {
