@@ -26,6 +26,7 @@ const Navigation = ({ user }: Session) => {
       <li key={nanoid()}>
         <Link
           href={`${route}`}
+          onClick={() => setIsOpen((prev) => !prev)}
           className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
         >
           {route === "/" ? "Home" : route}
@@ -43,31 +44,39 @@ const Navigation = ({ user }: Session) => {
         />
 
         {/*Mobile Menu*/}
-        {isOpen && (
-          <div
-            className="w-screen h-screen bg-black bg-opacity-30 fixed inset-0 z-50"
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            <div className="fixed inset-0 md:top-0 md:left-0 md:bottom-0 md:right-1/2 bg-almostblack flex">
-              <AiOutlineClose
-                className="text-2xl text-white fixed inset-6"
-                onClick={() => setIsOpen((prev) => !prev)}
-              />
-              <ul className="m-auto flex flex-col text-center gap-5">
-                {linksEl}
-                {user ? (
-                  <li className="text-white">
-                    Logged as {user.name as string}
-                  </li>
-                ) : (
-                  <li>
-                    <SignInButton />
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="w-screen h-screen bg-black bg-opacity-30 fixed inset-0 z-50"
+            >
+              <motion.div className="fixed inset-0 md:top-0 md:left-0 md:bottom-0 md:right-1/2 bg-almostblack flex">
+                <AiOutlineClose
+                  className="text-2xl text-white fixed inset-6"
+                  onClick={() => setIsOpen((prev) => !prev)}
+                />
+                <ul className="m-auto flex flex-col text-center gap-5">
+                  {linksEl}
+                  {user ? (
+                    <Link
+                      href="/dashboard"
+                      className="border bg-white py-3 px-6 uppercase tracking-[1.29px] font-bold"
+                      onClick={() => setIsOpen((prev) => !prev)}
+                    >
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <li>
+                      <SignInButton />
+                    </li>
+                  )}
+                </ul>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/**Logo */}
         <Link href="/" className="mr-auto md:mr-0">

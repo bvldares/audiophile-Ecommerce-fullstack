@@ -17,17 +17,17 @@ export default function ProductDeatils() {
   const product = data.find((item) => item.slug === productSlug);
 
   return (
-    <main className="flex flex-col gap-40 md:gap-24 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 lg:px-4 max-w-6xl mx-auto">
-      <section className="flex flex-col items-center outro:flex-row gap-14">
+    <main className="flex flex-col gap-40  md:gap-20 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 lg:px-4 max-w-6xl mx-auto">
+      <section className="flex flex-col items-center outro:flex-row gap-14 outro:gap-8 md:gap-10">
         <Image
           src={product!.image.desktop.substring(1)}
           width={540}
           height={560}
           alt={product!.name}
           quality={100}
-          className="outro:w-1/2 rounded-lg max-w-[540px] max-h-[560px] w-full"
+          className="outro:w-[48%] rounded-lg max-w-[540px] max-h-[560px] w-full"
         />
-        <div className="outro:w-1/2 flex flex-col items-center text-center outro:text-left outro:items-start">
+        <div className="outro:w-[48%] flex flex-col items-center text-center outro:text-left outro:items-start">
           {product!.new && (
             <h3 className="text-terra text-sm tracking-[10px] uppercase">
               New Product

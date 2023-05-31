@@ -45,8 +45,8 @@ export default function Products() {
   });
   return (
     <main>
-      <section className="flex flex-col gap-40 md:gap-24 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 lg:px-4 max-w-6xl mx-auto">
-        <div className="flex flex-col-reverse gap-28 [&>*:nth-child(even)]:flex-row-reverse">
+      <section className="flex flex-col gap-40 md:gap-24 lg:gap-[168px] mt-16 lg:mt-28 mb-40 px-6 md:px-10 xl:px-0 max-w-6xl mx-auto">
+        <div className="flex flex-col-reverse gap-28 outro:[&>*:nth-child(even)]:flex-row-reverse [&>*:nth-child(even)]:flex-col">
           {products}
         </div>
         <ProductNavigator />

@@ -57,7 +57,7 @@ export default function Checkout() {
   const taxes = (totalPrice * 0.22).toFixed(2);
 
   return (
-    <section className="outro:flex mx-auto items-center max-w-6xl w-full gap-10 h-full px-6 md:px-10 xl:px-0 my-12 outro:my-4">
+    <section className="max-w-6xl w-full mx-auto  px-6 md:px-10 xl:px-0 my-12 outro:my-10 lg:my-16">
       <Link
         href="/"
         className="text-sm flex items-center gap-3 uppercase mb-4  bg-gray-100 p-2 box-border rounded-lg w-fit"
@@ -65,61 +65,67 @@ export default function Checkout() {
         <BiArrowBack />
         Continue shopping
       </Link>
-      {clientSecret && (
-        <>
-          <div className="p-8 w-full bg-gray-100 rounded-lg">
-            <Elements options={options} stripe={stripePromise}>
-              <CheckoutForm clientSecret={clientSecret} />
-            </Elements>
-          </div>
+      <section className="outro:flex items-center w-full gap-10">
+        {clientSecret && (
+          <>
+            <div className="mb-10 outro:mb-0 p-8 w-full bg-gray-100 rounded-lg">
+              <Elements options={options} stripe={stripePromise}>
+                <CheckoutForm clientSecret={clientSecret} />
+              </Elements>
+            </div>
 
-          <section className="py-8 px-6 w-full outro:max-w-sm bg-gray-100 rounded-lg">
-            <h2 className="font-bold text-lg uppercase tracking-[1.29px] mb-6 outro:mb-8">
-              Summary
-            </h2>
-            {cartStore.cart.map((cartItem) => {
-              return (
-                <div
-                  key={cartItem.id}
-                  className="flex items-center gap-4 mb-4 rounded-lg bg-white p-3"
-                >
-                  <Image
-                    src={cartItem.image.substring(1)}
-                    width={64}
-                    height={64}
-                    alt={cartItem.name}
-                    quality={100}
-                    className="aspect-square rounded-lg"
-                  />
-                  <div>
-                    <h3 className="text-sm font-bold">{cartItem.name}</h3>
-                    <p className="text-xs text-gray-600">
-                      {formattedPrice.format(cartItem.unit_amount)}
+            <section className="py-8 px-6 w-full outro:max-w-sm bg-gray-100 rounded-lg">
+              <h2 className="font-bold text-lg uppercase tracking-[1.29px] mb-6 outro:mb-8">
+                Summary
+              </h2>
+              {cartStore.cart.map((cartItem) => {
+                return (
+                  <div
+                    key={cartItem.id}
+                    className="flex items-center gap-4 mb-4 rounded-lg bg-white p-3"
+                  >
+                    <Image
+                      src={cartItem.image.substring(1)}
+                      width={64}
+                      height={64}
+                      alt={cartItem.name}
+                      quality={100}
+                      className="aspect-square rounded-lg"
+                    />
+                    <div>
+                      <h3 className="text-sm font-bold">{cartItem.name}</h3>
+                      <p className="text-xs text-gray-600">
+                        {formattedPrice.format(cartItem.unit_amount)}
+                      </p>
+                    </div>
+                    <p className="text-gray-600 ml-auto">
+                      x{cartItem.quantity}
                     </p>
                   </div>
-                  <p className="text-gray-600 ml-auto">x{cartItem.quantity}</p>
-                </div>
-              );
-            })}
-            <section className="flex flex-col gap-2 mt-4">
-              <h3 className="text-gray-600 flex items-center">
-                TOTAL
-                <span className="ml-auto font-bold">
-                  {formattedPrice.format(totalPrice)}
-                </span>
-              </h3>
-              <h3 className="text-gray-600 flex items-center">
-                VAT (INCLUDED)
-                <span className="ml-auto font-bold">{taxes}</span>
-              </h3>
-              <h3 className="text-gray-600 flex items-center">
-                SHIPPING
-                <span className="ml-auto font-bold">FREE</span>
-              </h3>
+                );
+              })}
+              <section className="flex flex-col gap-2 mt-4">
+                <h3 className="text-gray-600 flex items-center">
+                  TOTAL
+                  <span className="ml-auto font-bold">
+                    {formattedPrice.format(totalPrice)}
+                  </span>
+                </h3>
+                <h3 className="text-gray-600 flex items-center">
+                  VAT (INCLUDED)
+                  <span className="ml-auto font-bold">
+                    {formattedPrice.format(parseInt(taxes))}
+                  </span>
+                </h3>
+                <h3 className="text-gray-600 flex items-center">
+                  SHIPPING
+                  <span className="ml-auto font-bold">FREE</span>
+                </h3>
+              </section>
             </section>
-          </section>
-        </>
-      )}
+          </>
+        )}
+      </section>
     </section>
   );
 }
