@@ -42,7 +42,6 @@ export default async function dashboard() {
       )}
       <section className="flex flex-col gap-10">
         {order?.map((item) => {
-          const date = new Date(item.createdAt).toDateString();
           return (
             <div
               className="flex flex-col sm:flex-row sm:items-center sm:justify-between flex-wrap gap-4 max-w-3xl"
@@ -57,7 +56,9 @@ export default async function dashboard() {
                 </h2>
                 <h2 className="font-bold">
                   Time:
-                  <span className="font-normal">{date.toString()}</span>
+                  <span className="font-normal">
+                    {new Date(item.createdAt).toDateString().toString()}
+                  </span>
                 </h2>
                 <h2 className="font-bold">
                   Number of products:{" "}
@@ -86,6 +87,7 @@ export default async function dashboard() {
               <div className="flex gap-4">
                 {item.products.map((product) => (
                   <Image
+                    key={product.id}
                     width="80"
                     height="80"
                     alt={product.name}

@@ -36,10 +36,10 @@ export default function Footer() {
           </ul>
         </div>
         <p className="text-center outro:text-left outro:w-1/2 outro:self-start my-4">
-          Audiophile is an all in one stop to fulfill your audio needs. We're a
+          Audiophile is an all in one stop to fulfill your audio needs. We are a
           small team of music lovers and sound specialists who are devoted to
           helping you get the most out of personal audio. Come and visit our
-          demo facility - we’re open 7 days a week.
+          demo facility - we are open 7 days a week.
         </p>
         <div className="flex flex-col items-center gap-4 outro:flex-row outro:justify-between w-full">
           <p className="">Copyright 2021. All Rights Reserved</p>
