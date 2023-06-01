@@ -26,7 +26,7 @@ const Navigation = ({ user }: Session) => {
       <li key={nanoid()}>
         <Link
           href={`${route}`}
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={() => setIsOpen(false)}
           className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
         >
           {route === "/" ? "Home" : route}
@@ -70,15 +70,13 @@ const Navigation = ({ user }: Session) => {
                   className="text-2xl text-white fixed inset-6"
                   onClick={() => setIsOpen((prev) => !prev)}
                 />
-                <ul
-                  className="m-auto flex flex-col text-center gap-5 "
-                  onClick={() => setIsOpen((prev) => !prev)}
-                >
+                <ul className="m-auto flex flex-col text-center gap-5 ">
                   {LinksMenu}
                   {user ? (
                     <Link
                       href="/dashboard"
                       className="border bg-white py-3 px-6 uppercase tracking-[1.29px] font-bold"
+                      onClick={() => setIsOpen(false)}
                     >
                       Dashboard
                     </Link>
