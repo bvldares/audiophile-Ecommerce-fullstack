@@ -23,14 +23,14 @@ const Navigation = ({ user }: Session) => {
 
   const LinksMenu = links.map((route) => {
     return (
-      <li key={nanoid()} onClick={() => setIsOpen(false)}>
-        <Link
-          href={`${route}`}
-          className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
-        >
-          {route === "/" ? "Home" : route}
-        </Link>
-      </li>
+      <Link
+        onClick={() => setIsOpen(false)}
+        href={`${route}`}
+        key={nanoid()}
+        className="text-white font-semibold uppercase  hover:text-terra cursor-pointer tracking-[2px] "
+      >
+        {route === "/" ? "Home" : route}
+      </Link>
     );
   });
 
